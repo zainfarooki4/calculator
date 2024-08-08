@@ -1,0 +1,50 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+html {
+    background-color: #355064;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    margin: 1px;
+    border-radius: 5%;
+    border: none;
+}
+#container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 100px);
+    gap: 2px;
+    border: 10px solid #1d1d1d;
+    background-color: black;
+}
+.operator, .equal {
+    background-color: #ffab32;
+    grid-column: 4/4;
+}
+.operand {
+    background-color: #5d808a;
+}
+.AC, .percent, .sign {
+    background-color: lightgray;
+}
+.display {
+    grid-column: 1/5;
+    text-align: right;
+    background-color: gray;
+    border: 5px solid black;
+}
+.decimal {
+    grid-column: 3/3;
+    background-color: #5d808a;
+}
+.zero {
+    grid-column: span 2;
+    background-color: #5d808a;
+}

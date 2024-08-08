@@ -36,3 +36,4 @@ function operate(a, operator, b) {
     }
     return result;
 }
+// Event listeners for the buttons
