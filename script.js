@@ -1,7 +1,7 @@
 // Define the variables (global)
-    let firstNumber;
-    let operator;
-    let secondNumber;
+    let firstNumber = "";
+    let operator = null;
+    let secondNumber = "";
 // Create functions for add/subtract/multiply/divide
 function add(a, b) {
     return a + b;
@@ -41,7 +41,7 @@ const button = document.getElementById("container");
 container.addEventListener("click", function(event) {
     const target = event.target;
     // Ensure clicked element is a button
-    if (event.target.tagName === "button") {
+    if (event.target.tagName.toUpperCase() === "BUTTON") {
         // Check to see if it's an operand
         if (event.target.classList.contains("operand")) {
             // Append numbers based on if operator has been selected
