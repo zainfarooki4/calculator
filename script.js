@@ -43,6 +43,12 @@ container.addEventListener("click", function(event) {
     if (event.target.tagName === "button") {
         // Check to see if it's an operand
         if (event.target.classList.contains("operand")) {
+            // Append numbers based on if operator has been selected
+            if (operator === null) {
+                firstNumber += target.textContent;
+            } else {
+                secondNumber += target.textContent;
+            }
 
         }
         //Check to see if it's an equal
@@ -75,11 +81,16 @@ container.addEventListener("click", function(event) {
             if (event.target.classList.contains("add")){
 
             }
+            // Subtract
             else if (event.target.classList.contains("subtract")){
 
             }
-            else if (event.target.classList.contains("multiply")){}
+            // Multiply
+            else if (event.target.classList.contains("multiply")){
+
+            }
         }
+        // Divide
         else if (event.target.classList.contains("divide")){
 
         }
