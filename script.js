@@ -39,6 +39,7 @@ function operate(a, operator, b) {
 // Event listeners for the buttons
 const button = document.getElementById("container");
 container.addEventListener("click", function(event) {
+    const target = event.target;
     // Ensure clicked element is a button
     if (event.target.tagName === "button") {
         // Check to see if it's an operand
@@ -53,6 +54,19 @@ container.addEventListener("click", function(event) {
         }
         //Check to see if it's an equal
         else if (event.target.classList.contains("equal")) {
+            // Check to see if anything has been clicked already
+            if (firstNumber !== "" && operator !== null && secondNumber !== "") {
+                const num1 = parseFloat(firstNumber);
+                const num2 = parseFloat(secondNumber);
+
+                // Pass arguments to operate function
+                const result = operate(num1, operator, num2);
+
+                // Prepare for a new operation by resetting
+                firstNumber = result.toString();
+                secondNumber = "";
+                operator = null;
+            }
 
         }
         // Check to see if it's 'zero'
@@ -77,8 +91,12 @@ container.addEventListener("click", function(event) {
         }
         // Check to see if it's an operator
         else if (event.target.classList.contains("operator")){
+            if (firstNumber !== "") {
+                operator = event.target.textContent;
+            }
             // Add
             if (event.target.classList.contains("add")){
+
 
             }
             // Subtract
