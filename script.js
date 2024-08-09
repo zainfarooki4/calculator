@@ -67,50 +67,33 @@ container.addEventListener("click", function(event) {
                 secondNumber = "";
                 operator = null;
             }
-
+            // Update display
         }
         // Check to see if it's 'zero'
-            else if (event.target.classList.contains("zero")) {
+        else if (event.target.classList.contains("zero")) {
 
         }
-            // Check to see if it's AC
-            else if (event.target.classList.contains("AC")) {
+        // Check to see if it's AC
+        else if (event.target.classList.contains("AC")) {
 
         }
-            // Check to see if it's positive or negative sign
-            else if (event.target.classList.contains("sign")) {
+        // Check to see if it's positive or negative sign
+        else if (event.target.classList.contains("sign")) {
 
         }
-            // Check to see if it's percent
-            else if (event.target.classList.contains("percent")) {
+        // Check to see if it's percent
+        else if (event.target.classList.contains("percent")) {
 
         }
-            // Check to see if it's a decimal
-            else if (event.target.classList.contains("decimal")) {
+        // Check to see if it's a decimal
+        else if (event.target.classList.contains("decimal")) {
 
         }
         // Check to see if it's an operator
-        else if (event.target.classList.contains("operator")){
+        else if (event.target.classList.contains("operator")) {
             if (firstNumber !== "") {
                 operator = event.target.textContent;
             }
-            // Add
-            if (event.target.classList.contains("add")){
-
-
-            }
-            // Subtract
-            else if (event.target.classList.contains("subtract")){
-
-            }
-            // Multiply
-            else if (event.target.classList.contains("multiply")){
-
-            }
-        }
-        // Divide
-        else if (event.target.classList.contains("divide")){
-
         }
     }
 });
