@@ -97,3 +97,8 @@ container.addEventListener("click", function(event) {
         }
     }
 });
+// Create a function to update the display
+function updateDisplay(value) {
+    const display = document.getElementById("display");
+    display.textContent = value;
+}
