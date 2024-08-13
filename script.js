@@ -73,10 +73,6 @@ container.addEventListener("click", function(event) {
         else if (event.target.classList.contains("zero")) {
 
         }
-        // Check to see if it's AC
-        else if (event.target.classList.contains("AC")) {
-
-        }
         // Check to see if it's positive or negative sign
         else if (event.target.classList.contains("sign")) {
 
@@ -94,6 +90,14 @@ container.addEventListener("click", function(event) {
             if (firstNumber !== "") {
                 operator = event.target.textContent;
             }
+        }
+        // Check to see if it's AC
+        else if (event.target.classList.contains("AC")) {
+            firstNumber = "";
+            secondNumber = "";
+            operator = null;
+            updateDisplay(0); // Clear display and show zero
+
         }
     }
 });
