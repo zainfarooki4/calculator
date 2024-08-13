@@ -44,7 +44,7 @@ button {
     grid-column: 3/3;
     background-color: #5d808a;
 }
-.zero {
+#zero {
     grid-column: span 2;
     background-color: #5d808a;
 }

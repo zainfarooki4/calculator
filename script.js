@@ -25,7 +25,7 @@ function operate(a, operator, b) {
         case "-":
             result = subtract(a, b);
             break;
-        case "*":
+        case "x":
             result = multiply(a, b);
             break;
         case "/":
@@ -46,10 +46,11 @@ container.addEventListener("click", function(event) {
         if (event.target.classList.contains("operand")) {
             // Append numbers based on if operator has been selected
             if (operator === null) {
-                firstNumber += target.textContent;
+                firstNumber += target.textContent.trim();
             } else {
-                secondNumber += target.textContent;
+                secondNumber += target.textContent.trim();
             }
+            updateDisplay(operator === null ? firstNumber : secondNumber);
 
         }
         //Check to see if it's an equal
@@ -68,27 +69,49 @@ container.addEventListener("click", function(event) {
                 operator = null;
             }
             // Update display
-        }
-        // Check to see if it's 'zero'
-        else if (event.target.classList.contains("zero")) {
-
+            updateDisplay(firstNumber);
         }
         // Check to see if it's positive or negative sign
         else if (event.target.classList.contains("sign")) {
+            if (operator === null) {
+                firstNumber = toggleSign(firstNumber);
+                updateDisplay(firstNumber);
+            } else {
+                secondNumber = toggleSign(secondNumber);
+                updateDisplay(secondNumber);
+            }
 
         }
         // Check to see if it's percent
         else if (event.target.classList.contains("percent")) {
+            if (operator === null) {
+                firstNumber = toPercent(firstNumber);
+                updateDisplay(firstNumber);
+            } else {
+                secondNumber = toPercent(secondNumber);
+                updateDisplay(secondNumber);
+            }
 
         }
         // Check to see if it's a decimal
         else if (event.target.classList.contains("decimal")) {
+            if (operator === null) {
+                if (!firstNumber.includes(".")) {
+                    firstNumber += ".";
+                    updateDisplay(firstNumber);
+                }
+            } else {
+                if (!secondNumber.includes(".")) {
+                    secondNumber += ".";
+                    updateDisplay(secondNumber);
+                }
+            }
 
         }
         // Check to see if it's an operator
         else if (event.target.classList.contains("operator")) {
             if (firstNumber !== "") {
-                operator = event.target.textContent;
+                operator = event.target.textContent.trim();
             }
         }
         // Check to see if it's AC
@@ -102,7 +125,14 @@ container.addEventListener("click", function(event) {
     }
 });
 // Create a function to update the display
+function toggleSign(number) {
+    return number.charAt(0) === "-" ? number.substring(1) : "-" + number;
+}
+function toPercent(number) {
+    return (parseFloat(number) / 100).toString();
+}
+
 function updateDisplay(value) {
-    const display = document.getElementById("display");
+    const display = document.querySelector(".display");
     display.textContent = value;
 }
