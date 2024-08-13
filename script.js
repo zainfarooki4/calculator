@@ -37,7 +37,7 @@ function operate(a, operator, b) {
     return result;
 }
 // Event listeners for the buttons
-const button = document.getElementById("container");
+const container = document.getElementById("container");
 container.addEventListener("click", function(event) {
     const target = event.target;
     // Ensure clicked element is a button
